@@ -3,55 +3,325 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Testes - Anderson</title>
+  <title>Move Climatização | Instalação e Manutenção de Ar-Condicionado</title>
   <style>
-    body {
+    :root {
+      --azul-escuro: #0a2540;
+      --azul-claro: #0077b6;
+      --fundo-suave: #f0f4f8;
+      --texto-principal: #1e293b;
+      --texto-secundario: #475569;
+      --verde-whats: #25d366;
+      --verde-hover: #1ebe57;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--texto-principal);
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* Cabeçalho / Topo */
+    header {
+      background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-claro) 100%);
+      color: white;
+      padding: 60px 20px;
       text-align: center;
     }
-    header {
-      background-color: #0b2545;
-      color: white;
-      padding: 40px 20px;
-    }
-    h1 {
-      margin: 0 0 10px 0;
-    }
-    .botao {
+
+    .badge {
       display: inline-block;
-      background-color: #25d366;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      max-width: 700px;
+      margin: 0 auto 16px auto;
+      line-height: 1.2;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      opacity: 0.9;
+    }
+
+    .btn-principal {
+      display: inline-block;
+      background-color: var(--verde-whats);
       color: white;
-      padding: 15px 30px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.1rem;
+      padding: 16px 32px;
       border-radius: 8px;
-      margin-top: 20px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+      transition: background 0.2s, transform 0.2s;
     }
-    .caixa {
+
+    .btn-principal:hover {
+      background-color: var(--verde-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Container Padrão */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .titulo-secao {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .titulo-secao h2 {
+      font-size: 1.8rem;
+      color: var(--azul-escuro);
+      margin-bottom: 8px;
+    }
+
+    .titulo-secao p {
+      color: var(--texto-secundario);
+    }
+
+    /* Grid de Serviços */
+    .grid-servicos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card-servico {
       background: white;
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 20px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s;
+    }
+
+    .card-servico:hover {
+      transform: translateY(-4px);
+    }
+
+    .icone-servico {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .card-servico h3 {
+      color: var(--azul-escuro);
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card-servico p {
+      color: var(--texto-secundario);
+      font-size: 0.95rem;
+    }
+
+    /* Seção Diferenciais */
+    .secao-diferenciais {
+      background-color: var(--fundo-suave);
+    }
+
+    .grid-diferenciais {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .item-diferencial {
+      background: white;
+      padding: 24px 16px;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .item-diferencial strong {
+      display: block;
+      color: var(--azul-escuro);
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    /* Perguntas Frequentes */
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 18px 0;
+    }
+
+    .faq-item h4 {
+      color: var(--azul-escuro);
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .faq-item p {
+      color: var(--texto-secundario);
+      font-size: 0.95rem;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: var(--azul-escuro);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
+
+    /* Botão Flutuante WhatsApp */
+    .whats-flutuante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--verde-whats);
+      color: white;
+      padding: 14px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.75rem;
+      }
+      .container {
+        padding: 40px 20px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- TOPO -->
   <header>
-    <h1>Meu Laboratório de Testes</h1>
-    <p>Aqui eu posso testar cores, textos e botões à vontade</p>
-    <a href="#" class="botao">Botão de Exemplo</a>
+    <div class="badge">Atendimento em Porto Alegre e Região Metropolitana</div>
+    <h1>Instalação, Limpeza e Manutenção de Ar-Condicionado Split</h1>
+    <p>Serviço técnico limpo, seguro e dentro das normas do fabricante para manter seu ambiente climatizado e econômico.</p>
+    <a href="https://wa.me/5551999999999?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20ar-condicionado." target="_blank" class="btn-principal">
+      Solicitar Orçamento no WhatsApp
+    </a>
   </header>
 
-  <div class="caixa">
-    <h2>Bloco de Conteúdo</h2>
-    <p>Este é um card branco no meio da tela. Depois podemos mudar a cor dele ou colocar fotos aqui.</p>
-  </div>
+  <!-- SERVIÇOS -->
+  <section class="container">
+    <div class="titulo-secao">
+      <h2>Nossos Serviços</h2>
+      <p>Soluções completas para residências e pequenos comércios</p>
+    </div>
+
+    <div class="grid-servicos">
+      <div class="card-servico">
+        <div class="icone-servico">❄️</div>
+        <h3>Instalação de Split</h3>
+        <p>Instalação completa seguindo o padrão técnico: tubulação de cobre, isolamento térmico individual, teste de estanqueidade e vácuo no sistema para máxima durabilidade.</p>
+      </div>
+
+      <div class="card-servico">
+        <div class="icone-servico">🧼</div>
+        <h3>Higienização Completa</h3>
+        <p>Limpeza profunda de filtros, turbina, bandeja e serpentina com produtos bactericidas. Elimina mau cheiro, fungos, ácaros e reduz o consumo de energia.</p>
+      </div>
+
+      <div class="card-servico">
+        <div class="icone-servico">🔧</div>
+        <h3>Manutenção e Carga de Gás</h3>
+        <p>Diagnóstico preciso para aparelhos que não gelam, pingam água ou fazem barulho. Recarga de fluido refrigerante e troca de componentes desgastados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="secao-diferenciais">
+    <div class="container">
+      <div class="titulo-secao">
+        <h2>Por que escolher nosso atendimento?</h2>
+        <p>Compromisso com a qualidade técnica e o respeito à sua casa</p>
+      </div>
+
+      <div class="grid-diferenciais">
+        <div class="item-diferencial">
+          <strong>Ferramental Completo</strong>
+          <span>Bomba de vácuo, manifold digital e serra copo para acabamento limpo.</span>
+        </div>
+        <div class="item-diferencial">
+          <strong>Cuidado com o Ambiente</strong>
+          <span>Proteção no local de trabalho e limpeza após a conclusão do serviço.</span>
+        </div>
+        <div class="item-diferencial">
+          <strong>Orçamento Transparente</strong>
+          <span>Você sabe exatamente o valor do serviço e dos materiais antes de começar.</span>
+        </div>
+        <div class="item-diferencial">
+          <strong>Garantia de Serviço</strong>
+          <span>Atendimento direto com técnico responsável e garantia na mão de obra.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container">
+    <div class="titulo-secao">
+      <h2>Dúvidas Frequentes</h2>
+    </div>
+
+    <div class="faq-item">
+      <h4>De quanto em quanto tempo devo fazer a limpeza do ar-condicionado?</h4>
+      <p>Para uso residencial, o ideal é realizar a higienização completa a cada 6 a 12 meses, evitando o acúmulo de sujeira que força o compressor e aumenta a conta de luz.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Vocês fornecem a tubulação de cobre e o suporte?</h4>
+      <p>Sim! Podemos incluir o kit de instalação completo (cobre, esponjoso, cabo PP e suporte) no orçamento ou utilizar o material que você já tenha comprado.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Como funciona o orçamento?</h4>
+      <p>Basta clicar no botão do WhatsApp, informar a potência do aparelho (ex: 9.000 ou 12.000 BTUs) e o bairro onde será o serviço para receber uma estimativa rápida.</p>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p><strong>Move Soluções Residenciais - Climatização</strong></p>
+    <p>Atendimento em Porto Alegre, Gravataí, Cachoeirinha, Viamão e Glorinha</p>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE -->
+  <a href="https://wa.me/5551999999999?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20ar-condicionado." target="_blank" class="whats-flutuante">
+    💬 Orçamento Rápido
+  </a>
 
 </body>
 </html>
